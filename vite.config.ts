@@ -26,8 +26,14 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
-    host: true,
-    allowedHosts: ["glnnc7-3001.csb.app"], // Allow specific DevBox host
+    port: 3003, // Match your actual running port
+    host: "0.0.0.0", // Allow external connections for DevBox
+    strictPort: false, // Allow Vite to use different port if 3003 is taken
+    allowedHosts: [
+      "glnnc7-3003.csb.app", // Your specific DevBox host
+      ".csb.app", // Allow all CodeSandbox DevBox hosts
+      "localhost",
+    ],
+    cors: true,
   },
 });
